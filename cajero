@@ -1,0 +1,103 @@
+//Espacio de importacion de biblioteca
+import java.util.*;
+
+/** 
+Desafío cajero
+@Pri Ramallo Estevez Comision 22923
+25/10/2022
+*/
+
+public class Cajero{
+    public static void main(String[] args) {
+        //Declaro mi objeto 
+        Scanner Leer;
+
+        //Inicializo mi objeto scanner
+        Leer = new Scanner(System.in);
+
+        //Declaro variables
+        String usuario;
+        String opcion;
+        String nombreEmpresa;
+        String ingreso;
+        int clave;
+        double saldo;
+        double monto;
+        final int SALDO = 40000;//constante
+        //Instrucciones de E-S
+        saldo = SALDO;
+        System.out.println("******Bienvenid@ a su homebanking******");
+        System.out.println("Ingrese su usuario:");
+        //Inicializo la variable nombre con el objeto y el método
+        usuario = Leer.nextLine();
+        System.out.println("Ingrese su clave: ");
+        clave = Leer.nextInt();
+        if (clave<999){
+            System.out.println("la clave ingresada es incorrecta debe contener al menos 4 digitos");
+        }else{  System.out.println("ingreso correcto bienbenid@");
+            System.out.println("****-------Menú------**** ");
+            System.out.println("Elija una opcion A-(Datos Usuario)   B-(Saldo)     C-(Transferencia)   D-(Pago Online) S-(salir):  ");
+            opcion = Leer.nextLine(); 
+            
+            
+            //Aún no logro resolver la falla en el switch 
+
+
+            switch (opcion) { 
+            case "A":{ System.out.println("Datos del usuario "+usuario);
+        
+            System.out.println("Cbu:000012364624102022 Alias:Desafio.Cac");
+            }
+            break;
+            case "B": {
+            System.out.println("Su saldo actual es : "+ saldo);
+            // secuencia de sentencias.
+            }
+            break;
+            case "C":{   // secuencia de sentencias.
+            System.out.println("Ingrese el cbu/alias al que desea transferir : ");
+            monto = Leer.nextDouble();
+                if ((monto<saldo)||(monto==saldo)){
+                saldo = saldo-monto;
+                System.out.println("Transferencia exitosa ");
+                }else {
+                System.out.println("La operación no se puede realizar por falta de fondos,disculpe las molestias");
+                }
+                System.out.println("Su saldo es: "+ saldo);
+            }
+            break; 
+            case "D" :{ // secuencia de sentencias.
+            System.out.println("Ingrese el nombre de la empresa o servicio que desea pagar: ");
+        
+            nombreEmpresa = Leer.nextLine();
+
+            System.out.println(" Ingrese el monto a pagar: ");
+        
+            monto = Leer.nextDouble();
+                if ((monto<saldo)||(monto==saldo)){
+                saldo = saldo-monto;
+                System.out.println(" Pago aprobado por: "+ monto+" Empresa/Servicio: "+ nombreEmpresa);
+                }else {
+                System.out.println("No es posible realizar el pago, saldo insuficiente ");
+            }
+            }
+            break;
+            default:{
+                System.out.println("La opcion ingresada es incorrecta, ingrese una opcion S-(Cerrar sesion/salir)     M-(Volver al menú):  ");
+                ingreso = Leer.nextLine();
+            if (ingreso == "S") {
+            System.out.println("Gracias por usar nuestros servicios. Extraiga su tarjeta por favor");
+            }
+            }
+        
+        
+        }
+
+
+ 
+            
+    }
+    }
+}   
+
+  
